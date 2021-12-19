@@ -7,18 +7,22 @@ afterEach(cleanup);
 
 describe('Contact component', () => {
     it('renders', () => {
-        render(<Contact/>);
+        render(<Contact />);
     })
 
     it('matches snapshot', () => {
-        const { asFragment } = render(<Contact/>);
+        const { asFragment } = render(<Contact />);
 
         expect(asFragment()).toMatchSnapshot();
-    });
-
-    it('renders', () => {
-        const { getByTestId } = render(<Contact />)
-        expect(getByTestId('data-testid')).toHaveTextContent('Contact me');
-        expect(getByTestId('data-testid')).toHaveTextContent('Submit');
     })
+})
+
+it('renders', () => {
+    const { getByTestId } = render(<Contact />)
+    expect(getByTestId('h1tag')).toHaveTextContent('Contact me');
+})
+
+it('renders', () => {
+    const { getByTestId } = render(<Contact />)
+    expect(getByTestId('button')).toHaveTextContent('Submit')
 })
